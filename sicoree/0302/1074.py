@@ -1,6 +1,6 @@
 # 1074 / Z
 # https://www.acmicpc.net/problem/1074
-def Z(n, x, y, r, c):
+def Z(n, r, c):
     if n == 1:
         if r == 0:
             if c == 0:
@@ -16,32 +16,28 @@ def Z(n, x, y, r, c):
     else:
         # 1사분면
         if r < 2 ** (n - 1) and c < 2 ** (n - 1):
-            return Z(n - 1, x, y, r, c)
+            return Z(n - 1, r, c)
 
         # 2사분면
         elif r < 2 ** (n - 1) and c >= 2 ** (n - 1):
-            y += 2 ** (n - 1)
             c -= 2 ** (n - 1)
-            return 2 ** ((n - 1) * 2) + Z(n - 1, x, y, r, c)
+            return 2 ** ((n - 1) * 2) + Z(n - 1, r, c)
 
         # 3사분면
-        elif r >= 2 ** (n - 1) and c < 2 ** (n - 1):        
-            x += 2 ** (n - 1)
+        elif r >= 2 ** (n - 1) and c < 2 ** (n - 1):
             r -= 2 ** (n - 1)
-            return (2 ** ((n - 1) * 2)) * 2 + Z(n - 1, x, y, r, c)
+            return (2 ** ((n - 1) * 2)) * 2 + Z(n - 1, r, c)
 
         # 4사분면
         elif r >= 2 ** (n - 1) and c >= 2 ** (n - 1):
-            x += 2 ** (n - 1)
-            y += 2 ** (n - 1)
             r -= 2 ** (n - 1)
             c -= 2 ** (n - 1)
-            return (2 ** ((n - 1) * 2)) * 3 + Z(n - 1, x, y, r, c)
+            return (2 ** ((n - 1) * 2)) * 3 + Z(n - 1, r, c)
 
 
 N, r, c = map(int, input().split())
 
-result = Z(N, 0, 0, r, c)
+result = Z(N, r, c)
 
 print(result)
 
