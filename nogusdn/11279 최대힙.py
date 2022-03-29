@@ -42,5 +42,3 @@ for _ in range(N):
             print(deq())
     else:
         enq(num)
-
-
