@@ -4,6 +4,6 @@
 >
 > https://www.acmicpc.net/problem/2636
 
->1987 알파벳
+>1987 알파벳 (fail)
 >
 >https://www.acmicpc.net/problem/1987
