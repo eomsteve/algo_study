@@ -23,9 +23,7 @@ def BFS(x, y):
     while q:
         c = q.popleft()
 
-
         if visited[tx][ty] < visited[c[0]][c[1]]:
-
             # 잡아먹는 과정
             if len(xy_q) == 1:
                 nx, ny = xy_q.popleft()
